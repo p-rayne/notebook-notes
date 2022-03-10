@@ -1,0 +1,9 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+{% for note in notes %}
+    <h3>{{ note.created_date }}</h3>
+    <p>{{ note.text }}</p>
+    <hr>
+{% endfor %}
+{% endblock %}

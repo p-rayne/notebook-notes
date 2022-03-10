@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="{% static 'notes/style.css' %}" rel="stylesheet" />
+    <title>Notebook</title>
+  </head>
+  <body>
+    <div>
+      <span class="menu"><a href="/">На главную</a></span>
+      {% if user.is_authenticated %}
+      <span class="menu"><a href="{% url 'list_notes' %}">Список заметок</a></span
+      ><span class="menu"><a href="{% url 'create' %}">Добавить заметку</a></span
+      ><span class="menu"><a href="{% url 'logout' %}">Выйти</a></span>
+      {% else %}
+      <span class="menu"><a href="{% url 'login' %}">Авторизация</a></span
+      ><span class="menu"><a href="{% url 'register' %}">Регистрация</a></span>
+      {% endif %}
+    </div>
+    {% block content %} {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'notes/base.html' %}
+
+
+{% block content %}
+<h1>Notebook</h1>
+{% if user.is_authenticated %}
+    <h3>Общее количество Ваших сохраненных заметок равно: {{ count }}</h3>
+{% endif %}
+{% endblock %}
