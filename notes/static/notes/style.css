@@ -1,3 +1,94 @@
-.menu {
-padding: 10px;
+:root {
+  --color1: #33cccc;
+  --color2: #ff7400;
+}
+header,
+footer,
+section {
+  padding: 100px 0;
+}
+header {
+  padding: 150px 0;
+}
+header,
+footer {
+  background: var(--color1);
+  background: url(image/crystal.png),
+    -moz-linear-gradient(90deg, rgba(0, 153, 153, 1) 0%, rgba(51, 204, 204, 1)
+          50%, rgba(255, 116, 0, 1) 100%);
+  background: url(image/crystal.png),
+    -webkit-linear-gradient(90deg, rgba(0, 153, 153, 1) 0%, rgba(
+            51,
+            204,
+            204,
+            1
+          )
+          50%, rgba(255, 116, 0, 1) 100%);
+  background: url(image/crystal.png), rgb(0, 153, 153);
+  background: url(image/crystal.png),
+    linear-gradient(
+      90deg,
+      rgba(0, 153, 153, 1) 0%,
+      rgba(51, 204, 204, 1) 50%,
+      rgba(255, 116, 0, 1) 100%
+    );
+  filter: url(image/crystal.png),
+    progid:
+      DXImageTransform.Microsoft.gradient(
+        startColorstr= "#009999",
+        endColorstr= "#ff7400",
+        GradientType=1
+      );
+}
+/* Цвет */
+.color1 {
+  color: var(--color1);
+}
+.color2 {
+  color: var(--color2);
+}
+.bg1 {
+  background-color: var(--color1);
+}
+.bg2 {
+  background-color: var(--color2);
+}
+.section_bg {
+  background-color: #eee;
+}
+.count_notes {
+  text-align: center;
+  font-size: 56px;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Lobster", cursive;
+}
+.lobster {
+  font-family: "Lobster", cursive;
+}
+.alt_link {
+  text-decoration: none;
+  color: white;
+}
+.alt_link:hover {
+  text-decoration: none;
+  color: var(--color2);
+}
+.create-form textarea, .create-form input {
+  width: 100%;
+  border-color: var(--color1);
+  border-width: 1px;
+  border-radius: 6px;
+  outline-color: var(--color2);
+}
+.alt_button {
+  background-color: var(--color1);
+  border-color: var(--color1);
+}
+.alt_button:hover {
+  background-color: var(--color2);
+  border-color: var(--color2);
 }

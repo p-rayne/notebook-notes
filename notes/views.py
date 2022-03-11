@@ -50,6 +50,6 @@ def create_note(request):
 @login_required
 def list_notes(request):
     context = {
-        'notes': Notes.objects.filter(author=request.user)
+        'notes': Notes.objects.filter(author=request.user).order_by('-created_date')
     }
     return render(request, 'notes/list_notes.html', context)

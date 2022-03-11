@@ -1,9 +1,22 @@
-{% extends 'notes/base.html' %}
+{% extends 'notes/base.html' %} {% block content %}
+<section class="section_bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center text-uppercase pb-5">Notebook</h1>
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="row mb-5">
+      <div class="col-12">
+        <h3 class="text-center text-uppercase pt-5">
+          количество заметок:
+        </h3>
+      </div>
+      <div><h1 class="count_notes mb-5 color1">{{ count }}</h1></div>
+    </div>
+    {% endif %}
+  </div>
+</section>
 
-
-{% block content %}
-<h1>Notebook</h1>
-{% if user.is_authenticated %}
-    <h3>Общее количество Ваших сохраненных заметок равно: {{ count }}</h3>
-{% endif %}
 {% endblock %}

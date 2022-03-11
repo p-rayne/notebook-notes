@@ -8,9 +8,7 @@
     {% for f in form %}
     <tr>
       <td>
-        <label class="form-label" for="{{ f.id_for_label }}"
-          >{{f.label}}:
-        </label>
+        <label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>
       </td>
       <td>{{ f }}</td>
       <div class="form-error">{{ f.errors }}</div>

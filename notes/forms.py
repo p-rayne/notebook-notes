@@ -22,6 +22,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class NotesForm(forms.ModelForm):
+    text = forms.CharField(label='Текст заметки', widget=forms.Textarea(attrs={'class': 'form-input'}))
 
     class Meta:
         model = Notes
