@@ -77,7 +77,8 @@ h4 {
   text-decoration: none;
   color: var(--color2);
 }
-.create-form textarea, .create-form input {
+.create-form textarea,
+.create-form input {
   width: 100%;
   border-color: var(--color1);
   border-width: 1px;
@@ -91,4 +92,8 @@ h4 {
 .alt_button:hover {
   background-color: var(--color2);
   border-color: var(--color2);
+}
+.table_center {
+  display: flex;
+  justify-content: center;
 }
