@@ -13,10 +13,10 @@ header {
 header,
 footer {
   background: var(--color1);
-  background: url(image/crystal.png),
+  background: url(../image/crystal.png),
     -moz-linear-gradient(90deg, rgba(0, 153, 153, 1) 0%, rgba(51, 204, 204, 1)
           50%, rgba(255, 116, 0, 1) 100%);
-  background: url(image/crystal.png),
+  background: url(../image/crystal.png),
     -webkit-linear-gradient(90deg, rgba(0, 153, 153, 1) 0%, rgba(
             51,
             204,
@@ -24,15 +24,15 @@ footer {
             1
           )
           50%, rgba(255, 116, 0, 1) 100%);
-  background: url(image/crystal.png), rgb(0, 153, 153);
-  background: url(image/crystal.png),
+  background: url(../image/crystal.png), rgb(0, 153, 153);
+  background: url(../image/crystal.png),
     linear-gradient(
       90deg,
       rgba(0, 153, 153, 1) 0%,
       rgba(51, 204, 204, 1) 50%,
       rgba(255, 116, 0, 1) 100%
     );
-  filter: url(image/crystal.png),
+  filter: url(../image/crystal.png),
     progid:
       DXImageTransform.Microsoft.gradient(
         startColorstr= "#009999",
