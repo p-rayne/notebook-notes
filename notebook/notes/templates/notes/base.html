@@ -4,69 +4,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% static 'notes/css/bootstrap.min.css' %}" rel="stylesheet" />
     <link
-      href="{% static 'notes/css/bootstrap.min.css' %}"
+      href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic"
       rel="stylesheet"
+      type="text/css"
     />
-    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
     <link href="{% static 'notes/css/style.css' %}" rel="stylesheet" />
     <title>Notebook</title>
   </head>
   <body>
     <div class="wrapper section_bg">
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="text-center"><a class="alt_link" href="/">Приложение для хранения заметок</a></h1>
+      <header>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">
+                <a class="alt_link" href="/">Приложение для хранения заметок</a>
+              </h1>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-    </header>
-    <div class="bg1">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link alt_link lobster" href="/">На главную</a>
-        </li>
-        {% if user.is_authenticated %}
-       <li class="nav-item">
-          <a class="nav-link alt_link lobster" href="{% url 'list_notes' %}">Список заметок</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link alt_link lobster" href="{% url 'create' %}">Добавить заметку</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link alt_link lobster" href="{% url 'logout' %}">Выйти</a>
-        </li>
-
-          <li>
-
-              <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-
+      </header>
+      <div class="bg1">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link alt_link lobster" href="/">На главную</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link alt_link lobster" href="{% url 'list_notes' %}"
+              >Список заметок</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link alt_link lobster" href="{% url 'create' %}"
+              >Добавить заметку</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link alt_link lobster" href="{% url 'logout' %}"
+              >Выйти</a
+            >
           </li>
 
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link alt_link lobster" href="{% url 'login' %}">Авторизация</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link alt_link lobster" href="{% url 'register' %}">Регистрация</a>
-        </li>
-      </ul>
-      {% endif %}
+          <form class="d-flex">
+            <input
+              class="form-control search_field me-2"
+              type="search"
+              placeholder="Поиск..."
+              aria-label="Search"
+            />
+            <button class="btn search_button lobster" type="submit">
+              Найти
+            </button>
+          </form>
+
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link alt_link lobster" href="{% url 'login' %}"
+              >Авторизация</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link alt_link lobster" href="{% url 'register' %}"
+              >Регистрация</a
+            >
+          </li>
+        </ul>
+        {% endif %}
+      </div>
+      <hr class="m-0 color2" />
+      <div class="content">{% block content %} {% endblock %}</div>
+      <footer class="footer"></footer>
     </div>
-    <hr class="m-0 color2"/>
-    <div class="content">
-    {% block content %} {% endblock %}
-  </div>
-    <footer class="footer">
-    </footer>
-  </div>
-    <script
-      src="{% static 'notes/js/bootstrap.bundle.min.js' %}"
-    ></script>
+    <script src="{% static 'notes/js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>

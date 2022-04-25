@@ -148,3 +148,20 @@ body {
 .footer {
 	flex: 0 0 auto;
 }
+.search_button {
+    background-color: var(--color2);
+    border-color: var(--color1);
+    color: white;
+    height: 80%;
+    margin: auto;
+    padding: 0 5% 0 5%;
+}
+.search_button:hover {
+    background-color: var(--color1);
+    border-color: var(--color1);
+}
+
+.search_field {
+height: 70%;
+margin: auto;
+}
