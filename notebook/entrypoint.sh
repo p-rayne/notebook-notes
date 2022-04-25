@@ -11,7 +11,7 @@ then
     echo "DB did run."
 fi
 
-python manage.py flush --no-input
+# python manage.py flush --no-input
 
 python manage.py migrate
 

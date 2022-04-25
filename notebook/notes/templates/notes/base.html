@@ -21,6 +21,7 @@
             <h1 class="text-center"><a class="alt_link" href="/">Приложение для хранения заметок</a></h1>
         </div>
       </div>
+      </div>
     </header>
     <div class="bg1">
       <ul class="nav justify-content-center">
@@ -37,6 +38,16 @@
         <li class="nav-item">
           <a class="nav-link alt_link lobster" href="{% url 'logout' %}">Выйти</a>
         </li>
+
+          <li>
+
+              <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+          </li>
+
         {% else %}
         <li class="nav-item">
           <a class="nav-link alt_link lobster" href="{% url 'login' %}">Авторизация</a>
