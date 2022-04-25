@@ -149,19 +149,25 @@ body {
 	flex: 0 0 auto;
 }
 .search_button {
-    background-color: var(--color2);
+    background-color: white;
     border-color: var(--color1);
-    color: white;
+    color: black;
     height: 80%;
     margin: auto;
     padding: 0 5% 0 5%;
+    border-width: 2px;
+    border-radius: 6px;
+
 }
 .search_button:hover {
-    background-color: var(--color1);
-    border-color: var(--color1);
+    background-color: var(--color2);
+    border-color: var(--color2);
+    color: white;
 }
 
 .search_field {
-height: 70%;
-margin: auto;
+    height: 70%;
+    margin: auto;
+    border-radius: 6px;
+    outline-color: var(--color1);
 }
