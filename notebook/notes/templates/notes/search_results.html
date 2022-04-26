@@ -1,0 +1,22 @@
+{% extends 'notes/base.html' %} {% block content %}
+{% if user.is_authenticated %}
+<h1>Search Results</h1>
+
+<section class="section_bg">
+<div class="container">
+    {% for note in object_list %}
+    <div class="row pb-5">
+    <div class="col-12">
+
+      <h3>{{ note.created_date }}</h3>
+      <p class="p-3">{{ note.text }}</p>
+      <hr class="color1"/>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</section>
+
+{% endif %}
+{% endblock %}

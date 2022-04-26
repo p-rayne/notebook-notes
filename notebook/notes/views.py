@@ -1,5 +1,7 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
+from django.views.generic import ListView
+
 from .forms import CustomUserCreationForm, NotesForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -53,3 +55,14 @@ def list_notes(request):
         'notes': Notes.objects.filter(author=request.user).order_by('-created_date')
     }
     return render(request, 'notes/list_notes.html', context)
+
+
+class SearchResultsView(ListView):
+    model = Notes
+    template_name = 'notes/search_results.html'
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            query = self.request.GET.get('q')
+            object_list = Notes.objects.filter(author=self.request.user, text__icontains=query)
+            return object_list
