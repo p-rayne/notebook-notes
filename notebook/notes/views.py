@@ -64,5 +64,8 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         if self.request.user.is_authenticated:
             query = self.request.GET.get('q')
-            object_list = Notes.objects.filter(author=self.request.user, text__icontains=query)
-            return object_list
+            if query.isalnum():
+                object_list = Notes.objects.filter(
+                    author=self.request.user, text__icontains=query
+                ).order_by('-created_date')
+                return object_list

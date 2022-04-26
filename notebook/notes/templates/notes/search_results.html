@@ -1,9 +1,10 @@
 {% extends 'notes/base.html' %} {% block content %}
 {% if user.is_authenticated %}
-<h1>Search Results</h1>
+
 
 <section class="section_bg">
 <div class="container">
+    <h2 class="pb-3">Результат поиска:</h2>
     {% for note in object_list %}
     <div class="row pb-5">
     <div class="col-12">
