@@ -149,15 +149,12 @@ body {
 	flex: 0 0 auto;
 }
 .search_button {
-    background-color: white;
-    border-color: var(--color1);
-    color: black;
-    height: 80%;
+    background-color: var(--color1);
+    color: white;
     margin: auto;
-    padding: 0 5% 0 5%;
     border-width: 2px;
     border-radius: 6px;
-
+    padding: 0 3% 0 3%;
 }
 .search_button:hover {
     background-color: var(--color2);
@@ -166,8 +163,10 @@ body {
 }
 
 .search_field {
-    height: 70%;
     margin: auto;
     border-radius: 6px;
     outline-color: var(--color1);
+}
+.btn_nav_search {
+    background-color: var(--color1);
 }
