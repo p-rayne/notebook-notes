@@ -64,8 +64,10 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         if self.request.user.is_authenticated:
             query = self.request.GET.get('q')
-            if query.isalnum():
-                object_list = Notes.objects.filter(
-                    author=self.request.user, text__icontains=query
-                ).order_by('-created_date')
-                return object_list
+            d_mx = self.request.GET.get('datemax')
+            d_mn = self.request.GET.get('datemin')
+            object_list = Notes.objects.filter(
+               author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx)
+            ).order_by('-created_date')
+            return object_list
+
