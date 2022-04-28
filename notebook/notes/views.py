@@ -1,3 +1,5 @@
+from datetime import timedelta, datetime
+
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
@@ -66,8 +68,9 @@ class SearchResultsView(ListView):
             query = self.request.GET.get('q')
             d_mx = self.request.GET.get('datemax')
             d_mn = self.request.GET.get('datemin')
+            d_mx_clear = datetime.strptime(d_mx, "%Y-%m-%d") + timedelta(days=1)
             object_list = Notes.objects.filter(
-               author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx)
+               author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx_clear)
             ).order_by('-created_date')
             return object_list
 
