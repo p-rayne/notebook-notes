@@ -49,14 +49,19 @@
           </li>
           <li class="nav-item">
             <button
-              class="btn alt_button" onclick="this.blur();"
+              class="btn alt_button"
+              onclick="this.blur();"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseExample"
-              aria-expanded="false"
-              aria-controls="collapseExample"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
             >
-            <img src="{% static 'notes/image/search.svg' %}" alt="Поиск" width="16" height="16">
+              <img
+                src="{% static 'notes/image/search.svg' %}"
+                alt="Поиск"
+                width="16"
+                height="16"
+              />
             </button>
           </li>
           {% else %}
@@ -74,51 +79,59 @@
         {% endif %}
       </div>
       <hr class="m-0 color2" />
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                <form
-                  class="d-flex"
-                  action="{% url 'search_results' %}"
-                  method="get"
-                >
-                <input
-                    class="me-2 form-control search_field"
-                    type="date"
-                    id="datemin"
-                    name="datemin"
-                    min="2022-01-01"
-                    max="{% now 'Y-m-d' %}"
-                    value="2022-01-01"
-                    required
-                  />
-                  <input
-                    class="me-2 form-control search_field"
-                    type="date"
-                    id="datemax"
-                    name="datemax"
-                    value="{% now 'Y-m-d' %}"
-                    max="{% now 'Y-m-d' %}"
-                    required
-                  />
-                  <input
-                    class="form-control search_field me-2"
-                    type="search"
-                    name="q"
-                    placeholder="Поиск..."
-                    aria-label="Search"
-                  />
-                  <button class="btn search_button lobster" type="submit">
-                    Найти
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
+
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header search_bg">
+          <h5 id="offcanvasRightLabel">Поиск</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body section_bg lobster">
+          <form action="{% url 'search_results' %}" method="get">
+            <label for="datemin">Начальная дата</label>
+            <input
+              class="me-2 form-control search_field"
+              type="date"
+              id="datemin"
+              name="datemin"
+              min="2022-01-01"
+              max="{% now 'Y-m-d' %}"
+              value="2022-01-01"
+              required
+            /><br />
+            <label for="datemax">Финальная дата</label>
+            <input
+              class="me-2 form-control search_field"
+              type="date"
+              id="datemax"
+              name="datemax"
+              value="{% now 'Y-m-d' %}"
+              max="{% now 'Y-m-d' %}"
+              required
+            /><br />
+            <label for="text_search">Поиск по словам</label>
+            <input
+              class="form-control search_field me-2"
+              type="search"
+              name="q"
+              placeholder="Поиск..."
+              aria-label="Search"
+              id="text_search"
+            /><br />
+            <button class="btn search_button" type="submit">Найти</button>
+          </form>
         </div>
       </div>
+
       <div class="content">{% block content %} {% endblock %}</div>
       <footer class="footer"></footer>
     </div>
