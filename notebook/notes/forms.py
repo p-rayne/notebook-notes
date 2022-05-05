@@ -23,8 +23,24 @@ class CustomUserCreationForm(UserCreationForm):
 
 class NotesForm(forms.ModelForm):
     text = forms.CharField(label='Текст заметки', widget=forms.Textarea(attrs={'class': 'form-input'}))
+    category = forms.CharField(label='Категория', widget=forms.TextInput(attrs={'class': 'form-input',
+                                                                                'value': 'Без категории',
+                                                                                'placeholder': 'Введите категорию'}))
 
     class Meta:
         model = Notes
         fields = ('text', 'category')
 
+
+class SearchForm(forms.Form):
+
+    datemin = forms.DateField(widget=forms.DateInput)
+    datemax = forms.DateField(widget=forms.DateInput)
+    text_search = forms.CharField(widget=forms.TextInput)
+    cat_search = forms.ModelChoiceField(queryset=Notes.objects.none())
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(SearchForm, self).__init__(*args, **kwargs)
+        self.fields['cat_search'].queryset = Notes.objects.filter(author=self.user).\
+            values_list('category', flat=True).distinct('category')

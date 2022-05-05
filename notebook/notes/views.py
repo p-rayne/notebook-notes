@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
-from .forms import CustomUserCreationForm, NotesForm
+from .forms import CustomUserCreationForm, NotesForm, SearchForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -62,15 +62,31 @@ def list_notes(request):
 class SearchResultsView(ListView):
     model = Notes
     template_name = 'notes/search_results.html'
+    form_class = SearchForm
 
-    def get_queryset(self):
-        if self.request.user.is_authenticated:
-            query = self.request.GET.get('q')
-            d_mx = self.request.GET.get('datemax')
-            d_mn = self.request.GET.get('datemin')
-            d_mx_clear = datetime.strptime(d_mx, "%Y-%m-%d") + timedelta(days=1)
-            object_list = Notes.objects.filter(
-               author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx_clear)
-            ).order_by('-created_date')
-            return object_list
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(user=request.user)
+        return render(request, self.template_name, {'form': form})
 
+
+
+
+
+
+
+
+#    def get_queryset(self):
+#
+#        if self.request.user.is_authenticated:
+#            query = self.request.GET.get('q')
+#            d_mx = self.request.GET.get('datemax')
+#            d_mn = self.request.GET.get('datemin')
+#            d_mx_clear = datetime.strptime(d_mx, "%Y-%m-%d") + timedelta(days=1)
+#            object_list = Notes.objects.filter(
+#               author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx_clear)
+#            ).order_by('-created_date')
+#            return object_list
+
+
+    #   CHOICES = {Notes.objects.filter(author=self.request.user).order_by('category').distinct('category'):
+    #   Notes.objects.filter(author=self.request.user).order_by('category').distinct('category')}

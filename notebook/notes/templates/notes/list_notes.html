@@ -7,7 +7,7 @@
       
       <h3>{{ note.created_date }}</h3>
       <p class="p-3">{{ note.text|linebreaks }}</p>
-        {{ note.category|default_if_none:"Без категории" }}
+        {{ note.category }}
       <hr class="color1"/>
       
     </div>
