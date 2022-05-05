@@ -44,3 +44,4 @@ class Notes(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    category = models.CharField(max_length=20, blank=True, null=True)

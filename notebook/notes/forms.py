@@ -26,5 +26,5 @@ class NotesForm(forms.ModelForm):
 
     class Meta:
         model = Notes
-        fields = ('text',)
+        fields = ('text', 'category')
 
