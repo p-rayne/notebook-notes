@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django import forms
 from .models import CustomUser, Notes
+from .widget import DatePickerInput
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -34,8 +35,8 @@ class NotesForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
 
-    datemin = forms.DateField(widget=forms.DateInput)
-    datemax = forms.DateField(widget=forms.DateInput)
+    datemin = forms.DateField(widget=DatePickerInput)
+    datemax = forms.DateField(widget=DatePickerInput)
     text_search = forms.CharField(widget=forms.TextInput)
     cat_search = forms.ModelChoiceField(queryset=Notes.objects.none())
 
