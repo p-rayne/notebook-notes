@@ -164,9 +164,10 @@ body {
 }
 
 .search_field {
-    margin: auto;
+    border-color: var(--color1);
+    border-width: 1px;
     border-radius: 6px;
-    outline-color: var(--color1);
+    outline-color: var(--color2);
 }
 .btn_nav_search {
     background-color: var(--color1);

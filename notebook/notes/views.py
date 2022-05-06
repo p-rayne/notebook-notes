@@ -1,6 +1,7 @@
 from datetime import timedelta, datetime
 
 from django.contrib.auth import login
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
@@ -62,11 +63,13 @@ def list_notes(request):
 class SearchView(FormView):
     form_class = SearchForm
     template_name = 'notes/search.html'
-#    success_url = reverse_lazy('search_results')
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(user=request.user)
-        return render(request, self.template_name, {'form': form})
+        if self.request.user.is_authenticated:
+            form = self.form_class(user=request.user)
+            return render(request, self.template_name, {'form': form})
+        else:
+            return redirect('login')
 
 
 class SearchResultsView(ListView):
@@ -78,9 +81,17 @@ class SearchResultsView(ListView):
             query = self.request.GET.get('text_search')
             d_mx = self.request.GET.get('datemax')
             d_mn = self.request.GET.get('datemin')
+            cat = self.request.GET.get('cat_search')
             d_mx_clear = datetime.strptime(d_mx, "%Y-%m-%d") + timedelta(days=1)
-            object_list = Notes.objects.filter(
-                author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx_clear)
-            ).order_by('-created_date')
+            if cat == '':
+                object_list = Notes.objects.filter(
+                    author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx_clear)
+                ).order_by('-created_date')
+            else:
+                object_list = Notes.objects.filter(
+                    author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx_clear),
+                    category=cat
+                ).order_by('-created_date')
             return object_list
-
+        else:
+            raise Http404
