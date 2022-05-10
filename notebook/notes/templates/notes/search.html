@@ -1,21 +1,42 @@
 {% extends 'notes/base.html' %} {% block content %}
 <section class="section_bg">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <form method="get" action="{% url 'search_results' %}">
-
-
-            {% for f in form %}
-            <label class="form-label" for="{{ f.id_for_label }}"
-                  ><h4>{{f.label}}:</h4></label>
-
-            <p>{{ f }}</p>
-            {% endfor %}
-            <button type="submit" class="btn btn-primary alt_button">Поиск</button>
-        </form>
+    <form method="get" action="{% url 'search_results' %}">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+          <label class="form-label" for="{{ form.datemin.id }}">
+            <div class="lobster">{{ form.datemin.label }}:</div></label
+          >
+          <p>{{ form.datemin }}</p>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="{{ form.datemax.id }}"
+            ><div class="lobster">{{ form.datemax.label }}:</div></label
+          >
+          <p>{{ form.datemax }}</p>
+        </div>
+        <div class="col-md-4"></div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <label class="form-label" for="{{ form.text_search.id }}">
+            <div class="lobster">{{ form.text_search.label }}:</div></label
+          >
+          <p>{{ form.text_search }}</p>
+          <label class="form-label" for="{{ form.cat_search.id }}">
+            <div class="lobster">{{ form.cat_search.label }}:</div></label
+          >
+          <p>{{ form.cat_search }}</p>
+          <br />
+          <button type="submit" class="btn btn-primary alt_button justify-content-right">
+            Поиск
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 {% endblock %}

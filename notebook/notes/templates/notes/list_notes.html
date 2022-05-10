@@ -1,19 +1,17 @@
 {% extends 'notes/base.html' %} {% block content %}
 <section class="section_bg">
-<div class="container">
+  <div class="container">
     {% for note in notes %}
     <div class="row pb-5">
-    <div class="col-12">
-      
-      <h3>{{ note.created_date }}</h3>
-      <p class="p-3">{{ note.text|linebreaks }}</p>
-        {{ note.category }}
-      <hr class="color1"/>
-      
+      <div class="col">
+        <h3>{{ note.created_date }}</h3>
+        <p class="p-3">{{ note.text }}</p>
+       # {{ note.category }}
+      </div>
     </div>
+    
+    <hr class="color1" />
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 </section>
-
 {% endblock %}

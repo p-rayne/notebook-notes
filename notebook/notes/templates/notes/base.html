@@ -48,13 +48,10 @@
             >
           </li>
           <li class="nav-item">
+            <a href="{% url 'search' %}">
             <button
               class="btn alt_button"
-              onclick="this.blur();"
               type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight"
             >
               <img
                 src="{% static 'notes/image/search.svg' %}"
@@ -63,6 +60,7 @@
                 height="16"
               />
             </button>
+              </a>
           </li>
           {% else %}
           <li class="nav-item">
@@ -86,37 +84,3 @@
     <script src="{% static 'notes/js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>
-
-
-<!-- <label for="datemin">Начальная дата</label>
-            <input
-              class="me-2 form-control search_field"
-              type="date"
-              id="datemin"
-              name="datemin"
-              min="2022-01-01"
-              max="{% now 'Y-m-d' %}"
-              value="2022-01-01"
-              required
-            /><br />
-            <label for="datemax">Финальная дата</label>
-            <input
-              class="me-2 form-control search_field"
-              type="date"
-              id="datemax"
-              name="datemax"
-              value="{% now 'Y-m-d' %}"
-              max="{% now 'Y-m-d' %}"
-              required
-            /><br />
-            <label for="text_search">Поиск по словам</label>
-            <input
-              class="form-control search_field me-2"
-              type="search"
-              name="q"
-              placeholder="Поиск..."
-              aria-label="Search"
-              id="text_search"
-            /><br />
-
- -->

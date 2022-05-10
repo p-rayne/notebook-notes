@@ -37,15 +37,15 @@ class NotesForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     datemin = forms.DateField(widget=DatePickerInput(attrs={
-        'class': 'me-2 form-control search_field', 'min': '2022-01-01', 'max': datetime.date.today(),
+        'class': 'form-control search_field', 'min': '2022-01-01', 'max': datetime.date.today(),
         'value': "2022-01-01"
     }), label='Начальная дата')
     datemax = forms.DateField(widget=DatePickerInput(attrs={
-        'class': 'me-2 form-control search_field', 'min': '2022-01-01', 'max': datetime.date.today(),
+        'class': 'form-control search_field', 'min': '2022-01-01', 'max': datetime.date.today(),
         'value': datetime.date.today()
     }), label='Финальная дата')
     text_search = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'me-2 form-control search_field', 'placeholder': 'Поиск...', 'aria-label': 'Search'
+        'class': 'form-control search_field', 'placeholder': 'Поиск...', 'aria-label': 'Search'
     }), label='Поиск по словам', required=False)
     cat_search = forms.ModelChoiceField(queryset=Notes.objects.none(), widget=forms.Select(attrs={
         'class': "form-select search_field", 'aria-label': "Default select example",
