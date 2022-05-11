@@ -1,11 +1,12 @@
 from datetime import timedelta, datetime
 
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
-from .forms import CustomUserCreationForm, NotesForm, SearchForm
+from .forms import *
 from django.views.generic.edit import CreateView, FormView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -14,7 +15,7 @@ from .models import Notes
 
 
 class SignUpView(CreateView):
-    template_name = 'registration/register.html'
+    template_name = 'notes/register.html'
     success_url = reverse_lazy('main')
     form_class = CustomUserCreationForm
 
@@ -27,6 +28,19 @@ class SignUpView(CreateView):
         if self.request.user.is_authenticated:
             return redirect('main')
         return super().dispatch(*args, **kwargs)
+
+
+class LoginCustomView(LoginView):
+    form_class = LoginCustomForm
+    template_name = 'notes/login.html'
+
+    def get_success_url(self):
+        return reverse_lazy('main')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
 
 
 def main(request):

@@ -12,19 +12,17 @@
           <div class="lobster">{{ form.datemax.label_tag }}</div>
           <p>{{ form.datemax }}</p>
         </div>
-        <div class="col-md-4"></div>
       </div>
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-3 mx-auto">
           <div class="lobster">{{ form.text_search.label_tag }}</div>
           <p>{{ form.text_search }}</p>
           <div class="lobster">{{ form.cat_search.label_tag }}:</div>
           <p>{{ form.cat_search }}</p>
           <br />
-          <button type="submit" class="btn alt_button">
-            Поиск
-          </button>
+          <div class="d-grid">
+            <button type="submit" class="btn alt_button">Поиск</button>
+          </div>
         </div>
       </div>
     </form>

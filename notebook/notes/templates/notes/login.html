@@ -1,0 +1,28 @@
+{% extends "notes/base.html" %} {% block content %}
+<section class="section_bg">
+  <div class="container">
+    <h1 class="text-center">Авторизация</h1>
+    <br />
+
+    <div class="row">
+      <div class="col-md-3 mx-auto">
+        <form method="post">
+          {% csrf_token %} {{ form.non_field_errors }}
+          {% for f in form %} 
+          {{f.errors }} 
+          {% endfor %}
+          <div class="lobster">{{ form.username.label_tag }}</div>
+          <p>{{ form.username }}</p>
+          <div class="lobster">{{ form.password.label_tag }}</div>
+          <p>{{ form.password }}</p>
+          <br />
+          <div class="d-grid">
+            <button type="submit" class="btn alt_button">Войти</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
