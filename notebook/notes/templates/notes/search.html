@@ -5,33 +5,24 @@
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-2">
-          <label class="form-label" for="{{ form.datemin.id }}">
-            <div class="lobster">{{ form.datemin.label }}:</div></label
-          >
+          <div class="lobster">{{ form.datemin.label_tag }}</div>
           <p>{{ form.datemin }}</p>
         </div>
         <div class="col-md-2">
-          <label class="form-label" for="{{ form.datemax.id }}"
-            ><div class="lobster">{{ form.datemax.label }}:</div></label
-          >
+          <div class="lobster">{{ form.datemax.label_tag }}</div>
           <p>{{ form.datemax }}</p>
         </div>
         <div class="col-md-4"></div>
       </div>
-
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <label class="form-label" for="{{ form.text_search.id }}">
-            <div class="lobster">{{ form.text_search.label }}:</div></label
-          >
+          <div class="lobster">{{ form.text_search.label_tag }}</div>
           <p>{{ form.text_search }}</p>
-          <label class="form-label" for="{{ form.cat_search.id }}">
-            <div class="lobster">{{ form.cat_search.label }}:</div></label
-          >
+          <div class="lobster">{{ form.cat_search.label_tag }}:</div>
           <p>{{ form.cat_search }}</p>
           <br />
-          <button type="submit" class="btn btn-primary alt_button justify-content-right">
+          <button type="submit" class="btn alt_button">
             Поиск
           </button>
         </div>

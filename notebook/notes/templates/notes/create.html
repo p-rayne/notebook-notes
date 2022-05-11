@@ -1,20 +1,18 @@
 {% extends 'notes/base.html' %} {% block content %}
 <section class="section_bg">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <form method="post">
-          {% csrf_token %}
-          
-            {% for f in form %}
-            <label class="form-label" for="{{ f.id_for_label }}"
-                  ><h3>{{f.label}}:</h3></label>
-            <p class="create-form">{{ f }}</p>
-            {% endfor %}
-            <button type="submit" class="btn btn-primary alt_button">Сохранить</button>
-        </form>
-      </div>
-    </div>
+    <form method="post">
+      {% csrf_token %} {% for f in form %}
+      <label class="form-label" for="{{ f.id_for_label }}"
+        ><h3>{{ f.label }}:</h3></label
+      >
+      <p>{{ f }}</p>
+      {% endfor %}
+      <br />
+      <button type="submit" class="btn alt_button">
+        Сохранить
+      </button>
+    </form>
   </div>
 </section>
 {% endblock %}

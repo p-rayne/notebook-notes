@@ -17,19 +17,17 @@
     <div class="wrapper section_bg">
       <header>
         <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="text-center">
-                <a class="alt_link" href="/">Приложение для хранения заметок</a>
-              </h1>
-            </div>
-          </div>
+          <h1 class="text-center">
+            <a class="alt_link" href="/">Приложение для хранения заметок</a>
+          </h1>
         </div>
       </header>
       <div class="bg1">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link alt_link lobster" href="/">На главную</a>
+            <a class="nav-link alt_link lobster" href="{% url 'main' %}"
+              >На главную</a
+            >
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
@@ -49,18 +47,15 @@
           </li>
           <li class="nav-item">
             <a href="{% url 'search' %}">
-            <button
-              class="btn alt_button"
-              type="button"
-            >
-              <img
-                src="{% static 'notes/image/search.svg' %}"
-                alt="Поиск"
-                width="16"
-                height="16"
-              />
-            </button>
-              </a>
+              <button class="btn alt_button" type="button">
+                <img
+                  src="{% static 'notes/image/search.svg' %}"
+                  alt="Поиск"
+                  width="16"
+                  height="16"
+                />
+              </button>
+            </a>
           </li>
           {% else %}
           <li class="nav-item">
@@ -77,7 +72,6 @@
         {% endif %}
       </div>
       <hr class="m-0 color2" />
-
       <div class="content">{% block content %} {% endblock %}</div>
       <footer class="footer"></footer>
     </div>

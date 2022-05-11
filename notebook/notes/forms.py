@@ -8,9 +8,9 @@ from .widget import DatePickerInput
 
 
 class CustomUserCreationForm(UserCreationForm):
-    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
-    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
-    password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
@@ -25,8 +25,8 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class NotesForm(forms.ModelForm):
-    text = forms.CharField(label='Текст заметки', widget=forms.Textarea(attrs={'class': 'form-input'}))
-    category = forms.CharField(label='Категория', widget=forms.TextInput(attrs={'class': 'form-input',
+    text = forms.CharField(label='Текст заметки', widget=forms.Textarea(attrs={'class': 'form-control'}))
+    category = forms.CharField(label='Категория', widget=forms.TextInput(attrs={'class': 'form-control',
                                                                                 'value': 'Без категории',
                                                                                 'placeholder': 'Введите категорию'}))
 
@@ -37,18 +37,18 @@ class NotesForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     datemin = forms.DateField(widget=DatePickerInput(attrs={
-        'class': 'form-control search_field', 'min': '2022-01-01', 'max': datetime.date.today(),
+        'class': 'form-control', 'min': '2022-01-01', 'max': datetime.date.today(),
         'value': "2022-01-01"
     }), label='Начальная дата')
     datemax = forms.DateField(widget=DatePickerInput(attrs={
-        'class': 'form-control search_field', 'min': '2022-01-01', 'max': datetime.date.today(),
+        'class': 'form-control', 'min': '2022-01-01', 'max': datetime.date.today(),
         'value': datetime.date.today()
     }), label='Финальная дата')
     text_search = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control search_field', 'placeholder': 'Поиск...', 'aria-label': 'Search'
+        'class': 'form-control', 'placeholder': 'Поиск...', 'aria-label': 'Search'
     }), label='Поиск по словам', required=False)
     cat_search = forms.ModelChoiceField(queryset=Notes.objects.none(), widget=forms.Select(attrs={
-        'class': "form-select search_field", 'aria-label': "Default select example",
+        'class': "form-select", 'aria-label': "Default select example",
     }), required=False, label='Поиск по категориям')
 
     def __init__(self, *args, **kwargs):
