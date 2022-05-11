@@ -1,5 +1,3 @@
-from datetime import timedelta, datetime
-
 from django.contrib.auth import login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
@@ -92,7 +90,7 @@ class SearchResultsView(LoginRequiredMixin, ListView):
         d_mx = self.request.GET.get('datemax')
         d_mn = self.request.GET.get('datemin')
         cat = self.request.GET.get('cat_search')
-        d_mx_clear = datetime.strptime(d_mx, "%Y-%m-%d") + timedelta(days=1)
+        d_mx_clear = datetime.datetime.strptime(d_mx, "%Y-%m-%d") + datetime.timedelta(days=1)
         if cat == '':
             object_list = Notes.objects.filter(
                 author=self.request.user, text__icontains=query, created_date__range=(d_mn, d_mx_clear)

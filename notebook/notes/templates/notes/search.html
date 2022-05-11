@@ -3,18 +3,19 @@
   <div class="container">
     <form method="get" action="{% url 'search_results' %}">
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-2">
-          <div class="lobster">{{ form.datemin.label_tag }}</div>
-          <p>{{ form.datemin }}</p>
-        </div>
-        <div class="col-md-2">
-          <div class="lobster">{{ form.datemax.label_tag }}</div>
-          <p>{{ form.datemax }}</p>
-        </div>
-      </div>
-      <div class="row">
         <div class="col-md-3 mx-auto">
+          <table>
+            <tr>
+              <td>
+                <div class="lobster">{{ form.datemin.label_tag }}</div>
+                <p>{{ form.datemin }}</p>
+              </td>
+              <td>
+                <div class="lobster">{{ form.datemax.label_tag }}</div>
+                <p>{{ form.datemax }}</p>
+              </td>
+            </tr>
+          </table>
           <div class="lobster">{{ form.text_search.label_tag }}</div>
           <p>{{ form.text_search }}</p>
           <div class="lobster">{{ form.cat_search.label_tag }}:</div>

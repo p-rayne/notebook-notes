@@ -184,3 +184,6 @@ body {
 .btn_nav_search {
     background-color: var(--color1);
 }*/
+table {
+width: 100%;
+}
