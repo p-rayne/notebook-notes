@@ -1,7 +1,7 @@
 {% extends 'notes/base.html' %} {% block content %}
 <section class="section_bg">
   <div class="container">
-    {% for note in notes %}
+    {% for note in object_list %}
     <h3>{{ note.created_date }}</h3>
     <span class="p-3">{{ note.text|linebreaksbr }}</span>
     <div class="row pb-5">

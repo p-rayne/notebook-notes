@@ -64,12 +64,13 @@ def create_note(request):
     return render(request, 'notes/create.html', {'form': form})
 
 
-@login_required
-def list_notes(request):
-    context = {
-        'notes': Notes.objects.filter(author=request.user).order_by('-created_date')
-    }
-    return render(request, 'notes/list_notes.html', context)
+class NotesView(LoginRequiredMixin, ListView):
+    template_name = 'notes/list_notes.html'
+    model = Notes
+
+    def get_queryset(self):
+        object_list = Notes.objects.filter(author=self.request.user).order_by('-created_date')
+        return object_list
 
 
 class SearchView(LoginRequiredMixin, FormView):
