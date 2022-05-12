@@ -2,11 +2,13 @@
 <section class="section_bg">
   <div class="container">
     <form method="post">
-      {% csrf_token %} {% for f in form %}
+      {% csrf_token %} {{ form.non_field_errors }}
+      {% for f in form %}
       <label class="form-label" for="{{ f.id_for_label }}"
         ><h3>{{ f.label }}:</h3></label
-      >
+      >{{f.errors }} 
       <p>{{ f }}</p>
+
       {% endfor %}
       <br />
       <div class="row">

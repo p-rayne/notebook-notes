@@ -10,6 +10,9 @@ section {
 header {
   padding: 150px 0;
 }
+table {
+width: 100%;
+}
 header,
 footer,
 .search_bg {
@@ -114,19 +117,10 @@ h4 {
   text-decoration: none;
   color: var(--color2);
 }
-.create-form textarea,
-.create-form input {
-  width: 100%;
-  border-color: var(--color1);
-  border-width: 1px;
-  border-radius: 6px;
-  outline-color: var(--color2);
-}
 .alt_button {
   color: #fff;
   background-color: var(--color1);
   border-color: var(--color1);
-  float: right;
 }
 .alt_button:hover {
   color: #fff;
@@ -138,10 +132,6 @@ h4 {
   background-color: var(--color2);
   border-color: var(--color2);
   box-shadow: 0 0 0 0.25rem rgba(255,116,0,.5);
-}
-.table_center {
-  display: flex;
-  justify-content: center;
 }
 html,
 body {
@@ -157,33 +147,4 @@ body {
 }
 .footer {
 	flex: 0 0 auto;
-}
-/*.search_button {
-    background-color: var(--color1);
-    color: white;
-    margin: auto;
-    border-width: 2px;
-    border-radius: 6px;
-    padding: 0 3% 0 3%;
-}
-.search_button:hover {
-    background-color: var(--color2);
-    border-color: var(--color2);
-    color: white;
-}*/
-
-/*.form_field {
-    border-color: var(--color1);
-    border-width: 1px;
-    border-radius: 5px;
-    outline-color: var(--color2);
-    width: 100%;
-    padding: 5px;
-}*/
-/*
-.btn_nav_search {
-    background-color: var(--color1);
-}*/
-table {
-width: 100%;
 }
