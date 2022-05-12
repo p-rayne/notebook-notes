@@ -67,6 +67,7 @@ def create_note(request):
 class NotesView(LoginRequiredMixin, ListView):
     template_name = 'notes/list_notes.html'
     model = Notes
+    paginate_by = 5
 
     def get_queryset(self):
         object_list = Notes.objects.filter(author=self.request.user).order_by('-created_date')
