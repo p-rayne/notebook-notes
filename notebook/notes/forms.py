@@ -1,5 +1,6 @@
 import datetime
 
+from captcha.fields import CaptchaField, CaptchaTextInput
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import ValidationError
 from django import forms
@@ -29,6 +30,7 @@ class NotesForm(forms.ModelForm):
     category = forms.CharField(label='Категория', widget=forms.TextInput(attrs={'class': 'form-control',
                                                                                 'value': 'Без категории',
                                                                                 'placeholder': 'Введите категорию'}))
+    captcha = CaptchaField(widget=CaptchaTextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Notes

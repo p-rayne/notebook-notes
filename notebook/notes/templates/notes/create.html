@@ -3,19 +3,23 @@
   <div class="container">
     <form method="post">
       {% csrf_token %} {{ form.non_field_errors }}
-      {% for f in form %}
-      <label class="form-label" for="{{ f.id_for_label }}"
-        ><h3>{{ f.label }}:</h3></label
-      >{{f.errors }} 
-      <p>{{ f }}</p>
-
-      {% endfor %}
-      <br />
       <div class="row">
-        <div class="col-md-3 mx-auto d-grid">
+        <div class="col-md-10">
+      <div class="lobster"><h3>{{ form.text.label_tag }}</h3></div>
+          {{ form.text }}
+        </div>
+         <div class="col-md-2 text-center">
+           <br><br>
+          <div class="lobster"><h4>{{ form.category.label_tag }}</h4></div>
+          {{ form.category }}
+        
+          <div class="mt-1">{{ form.captcha }}</div>
+        <br>
+        <div class="d-grid mt-3">
           <button type="submit" class="btn alt_button">Сохранить</button>
         </div>
-      </div>
+        </div>
+        </div>
     </form>
   </div>
 </section>

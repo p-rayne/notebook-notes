@@ -23,4 +23,5 @@ from django.contrib.auth import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('notes.urls')),
+    path('captcha/', include('captcha.urls')),
 ]
