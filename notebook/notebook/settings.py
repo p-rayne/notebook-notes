@@ -140,7 +140,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-CSRF_TRUSTED_ORIGINS = ['https://pure-brushlands-00892.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://pure-brushlands-00892.herokuapp.com']
 
 if DEBUG:
     import socket
