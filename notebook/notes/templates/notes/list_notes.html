@@ -1,4 +1,6 @@
-{% extends 'notes/base.html' %} {% block content %}
+{% extends 'notes/base.html' %} 
+{% block title %}Список заметок{% endblock %}
+{% block content %}
 <section class="section_bg">
   <div class="container">
     {% for note in object_list %}

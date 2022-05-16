@@ -1,4 +1,6 @@
-{% extends 'notes/base.html' %} {% block content %}
+{% extends 'notes/base.html' %} 
+{% block title %}Поиск{% endblock %}
+{% block content %}
 <section class="section_bg">
   <div class="container">
     <form method="get" action="{% url 'search_results' %}">

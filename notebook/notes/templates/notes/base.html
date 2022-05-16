@@ -11,7 +11,7 @@
       type="text/css"
     />
     <link href="{% static 'notes/css/style.css' %}" rel="stylesheet" />
-    <title>Notebook</title>
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
     <div class="wrapper section_bg">

@@ -1,4 +1,6 @@
-{% extends 'notes/base.html' %} {% block content %} 
+{% extends 'notes/base.html' %} 
+{% block title %}Результат поиска{% endblock %}
+{% block content %} 
 {% if user.is_authenticated %}
 <section class="section_bg">
   <div class="container">
