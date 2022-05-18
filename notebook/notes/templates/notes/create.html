@@ -1,26 +1,22 @@
-{% extends 'notes/base.html' %} {% block content %}
+{% extends 'notes/base.html' %}
+{% block title %}Создание заметки{% endblock %}
+{% block content %}
 <section class="section_bg">
-  <div class="container">
-    <form method="post">
-      {% csrf_token %} {{ form.non_field_errors }}
-      <div class="row">
-        <div class="col-md-10">
-      <div class="lobster"><h3>{{ form.text.label_tag }}</h3></div>
-          {{ form.text }}
-        </div>
-         <div class="col-md-2 text-center">
-           <br><br>
-          <div class="lobster"><h4>{{ form.category.label_tag }}</h4></div>
-          {{ form.category }}
-        
-          <div class="mt-1">{{ form.captcha }}</div>
-        <br>
-        <div class="d-grid mt-3">
-          <button type="submit" class="btn alt_button">Сохранить</button>
-        </div>
-        </div>
-        </div>
-    </form>
-  </div>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %} {{ form.non_field_errors }}
+            <h3>{{ form.text.label_tag }}</h3>
+            {{ form.text }}
+            <div class="col-md-3 mx-auto">
+                <br>
+                <div class="lobster">{{ form.category.label_tag }}</div>
+                {{ form.category }}
+                <br>
+                <div class="d-grid">
+                    <button type="submit" class="btn alt_button">Сохранить</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 {% endblock %}

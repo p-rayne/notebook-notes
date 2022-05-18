@@ -12,6 +12,7 @@ class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    captcha = CaptchaField(widget=CaptchaTextInput(attrs={'class': 'form-control'}))
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
@@ -30,7 +31,6 @@ class NotesForm(forms.ModelForm):
     category = forms.CharField(label='Категория', widget=forms.TextInput(attrs={'class': 'form-control',
                                                                                 'value': 'Без категории',
                                                                                 'placeholder': 'Введите категорию'}))
-    captcha = CaptchaField(widget=CaptchaTextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Notes
